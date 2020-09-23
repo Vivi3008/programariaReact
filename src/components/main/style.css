@@ -1,0 +1,33 @@
+.main{
+    margin: auto;
+    max-width: 700px;
+   
+}
+
+.main h1{
+    color:white;
+    text-align: center;
+    margin: 150px auto 50px;
+    letter-spacing: 0.2rem;
+}
+
+.main .content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.main .content .woman{
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    letter-spacing: 0.1rem;
+    text-align: center;
+}
+
+.main .content .woman h2{
+    
+    font-size: 16pt;
+}
