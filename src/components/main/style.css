@@ -28,6 +28,17 @@
 }
 
 .main .content .woman h2{
-    
     font-size: 16pt;
+}
+
+.main .content .woman a{
+    color: #1FE0BA;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.main .content .woman a:hover{
+    border-bottom: 2px solid #1fe0ba;
 }
