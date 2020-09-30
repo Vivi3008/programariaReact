@@ -4,36 +4,37 @@ import './style.css'
 
 export default class WomanDetails extends Component {
     state = {
-        woman: {}
+        woman: []
     }
-    
+
     async componentDidMount() {
 
         const { id } = this.props.match.params
 
         const response = await api.get(`/show/${id}`)
-        console.log(response.data)
-        
+
+
         this.setState({ woman: response.data })
-        console.log(this.state)
+        console.log(this.state.woman[0].Name)
+
     }
 
     render() {
-        const { woman } = this.state
+        const  { woman }  = this.state.woman[0]
 
         return <div className="principal">
-             
+
                 <div className="content">
-                   
-                         <h1>{woman.Name}</h1>
-                         <p>{woman.Description}</p>
-                         <p>Url:{woman.Url}</p>
-                   
-                   
+                    <p>{woman.Name}</p>
                 </div>
             
-           
-        </div>
+
+
+
+
+
+            </div>
+        
     }
 
 }

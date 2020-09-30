@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
 import './style.css'
@@ -23,7 +24,7 @@ export default class Main extends Component {
                 {woman.map(item => (
                     <div key={item.id} className="woman">
                         <h2>{item.Name}</h2>
-                        <p><a href={item.url}>Acessar</a></p>
+                        <p><Link to={`/show/${item.id}`}>Acessar</Link></p>
                     </div>
                 ))}
             </div>
