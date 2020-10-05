@@ -4,7 +4,7 @@ import Header from './components/header'
 import './global.css'
 
 
-function App() {
+export default function App() {
   return (
     <div className="app">
       <Header/> 
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+

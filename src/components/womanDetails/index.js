@@ -1,40 +1,27 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
 import './style.css'
 
-export default class WomanDetails extends Component {
-    state = {
-        woman: []
-    }
+export default function WomanDetail() {
+    const [woman, setWoman] = useState([])
 
-    async componentDidMount() {
+    useEffect(() => {
 
-        const { id } = this.props.match.params
-
-        const response = await api.get(`/show/${id}`)
-
-
-        this.setState({ woman: response.data })
-        console.log(this.state.woman[0].Name)
-
-    }
-
-    render() {
-        const  { woman }  = this.state.woman[0]
-
-        return <div className="principal">
-
-                <div className="content">
-                    <p>{woman.Name}</p>
-                </div>
+        async function fetchData(){
             
+            const response = await api.get(`/show/11`)
+            setWoman(response.data[0])
+            
+        }
 
+        fetchData()
+    }, [])
 
-
-
-
-            </div>
-        
-    }
-
+    return (
+        <div className="main">
+            <h1>{woman.Name}</h1>
+            <p>{woman.Description}</p>
+            <p><a href={woman.Url}>Ver mais</a></p>
+        </div>
+    )
 }

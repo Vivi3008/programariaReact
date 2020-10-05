@@ -1,24 +1,25 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
 import './style.css'
 
-export default class Main extends Component {
-    state = {
-        woman: []
-    }
+export default function Main (){
+    const [ woman, setWoman ] = useState([])
 
-    async componentDidMount() {
-        const response = await api.get('/index/1')
-        this.setState({ woman: response.data })
-    }
+    useEffect(()=>{
+        async function FecthData(){
+            const response = await api.get('/index/1')
+            setWoman(response.data)
+        }
+     FecthData()
+     
+    }, [])
+  
 
 
-    render() {
-        const { woman } = this.state
-
-        return <div className="main">
+        return(
+            <div className="main">
             <h1>Mulheres que fizeram história na tecnologia</h1>
             <div className="content">
                 {woman.map(item => (
@@ -29,8 +30,5 @@ export default class Main extends Component {
                 ))}
             </div>
         </div>
-
-
-    }
-
+        ) 
 } 
