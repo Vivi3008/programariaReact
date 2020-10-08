@@ -4,7 +4,7 @@ import Main from './components/main'
 import WomanDetails from './components/womanDetails'
 
 const Routes = () => (
-    <BrowserRouter>
+        <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Main}/>
             <Route  path="/show/:id" component={WomanDetails}/>
